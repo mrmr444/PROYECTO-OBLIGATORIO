@@ -26,11 +26,18 @@ function showCategoriesList(array) {
      </div> 
      
      '*/
-      
-        //probar otro codigo. andar anda.. pero no se que pasa con el array
      
+      
+        /*lo quie quiero hacer realmente es lo de arriba pero no se porque no me sale
+         me sigue figurando como que hay un error gramatical
+        */
+       
+        htmlContentToAppend += '<img class="bd-placeholder-img card-img-top"  src="' + cateogry.imgSrc + '">';
+        htmlContentToAppend += 'Nombre: '+ cateogry.name +'<br>';
+        htmlContentToAppend +=  cateogry.description +'<br>';
+        htmlContentToAppend += 'Costo: ' + cateogry.currency  + '' + cateogry.cost + '<br>';
+        htmlContentToAppend += '<br><hr><br>';
 
-    htmlContentToAppend += cateogry.name + '<br>';
     document.getElementById("products").innerHTML = htmlContentToAppend;        
     }
 }
