@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/album/"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      /*
     html, body{
       height: 100%;
     }
@@ -33,11 +43,117 @@
       max-width: 330px;
       padding: 15px;
       margin: auto;
+    }*/
+    /*MODIFICACIONES AL ESTILO DEL LOGUIN*/
+    body{
+      margin: 0;
+      padding: 0;
+      background: url(img/cover_back.png) no-repeat center right;
+      background-size:inherit;
     }
-  </style>
-</head>
+    .login-box{
+      width: 350px;
+      height: 500px;
+      border-radius: 20px;
+      border: 3px solid rgb(211, 64, 38) ;
+      background-color: rgba(255, 255, 255, 0.37);
+      top: 50%;
+      left: 50%;
+      position:absolute;
+      transform: translate(-50%,-50%);
+      box-sizing: border-box;
+      padding: 70px 30px;
+    }
 
-<body class="text-center">
+    .login-box h4 {
+      margin: 0;
+      padding: 0 0 20px;
+      font-weight: bold;
+      font-size: 30px ;
+      text-align: center;
+      width: 100%;
+      color: rgb(211, 64, 38);
+      text-shadow:black;
+    
+    }
+    
+    .login-box label {
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+      display: block;
+    }
+
+
+    .login-box input {
+      display: block;
+      width: 100%;
+      margin:5% 10%;
+    }
+
+    .login-box input[type ="email"]{
+     border: 1px solid rgb(211,64, 38);
+     border-radius: 10px;
+     background:transparent;
+     outline: none;
+     height: 40px;
+     font: size 16px;
+    }
+
+
+
+
+    .login-box input[type ="password"]{
+     border: 1px solid rgb(211,64, 38);
+     border-radius: 10px;
+     background:transparent;
+     outline: none;
+     height: 40px;
+     font: size 16px;
+    }
+
+    .login-box button {
+      height:40px;
+      width: 100%;
+      margin:10% 0% ;
+      position:relative;
+      background-color: rgba(211 ,64,38);
+      border: radius 10px;
+      text-align: center;
+      font-weight: bolder;
+      font: size 20px;
+      font-style: initial;
+      color: rgb(255, 255, 255);
+    }
+
+    #checkbox {
+    width: 100%;
+    
+    }   
+    
+
+    </style>
+  </head>
+
+  <body class="text-center">
+    <nav class="site-header sticky-top py-1 bg-dark">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between"
+      >
+        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html"
+          >Categorías</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="products.html"
+          >Productos</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a class="py-2 d-none d-md-inline-block" href="login.html">Login</a>
+      </div>
+    </nav>
+
+    <!--
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
@@ -46,8 +162,45 @@
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
   </div>
+  
+  Aplico cambios para construir el loguin-->
+    <div class="login-box">
+      <form action="index.html" method="post" class="">
+        <div class="row">
+          <h4>Registrate aqui</h4>
+          <label for="email"></label>
+          <input
+            type="email"
+            name="email"
+            id="mail"
+            placeholder="Email"
+            required
+            autofocus
+          />
 
-  <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
-</body>
+          <label for="password"></label>
+          <input
+            type="password"
+            name="password"
+            id="contraseña"
+            placeholder="Contraseña"
+            required
+          />
+        </div>
+        <div>
+          <label for="checkbox">
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="checkbox"
+              value="remember-me"
+            />Remember me
+          </label>
+        </div>
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
+    <script src="js/init.js"></script>
+    <script src="js/login.js"></script>
+  </body>
 </html>
