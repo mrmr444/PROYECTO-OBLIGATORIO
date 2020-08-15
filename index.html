@@ -55,7 +55,7 @@
     }
     .login-box{
       width: 350px;
-      height: 600px;
+      height: 420px;
       border-radius: 20px;
       border: 3px solid rgb(211, 64, 38) ;
       background-color: rgba(255, 255, 255, 0.37);
@@ -70,6 +70,7 @@
     .login-box h4 {
       margin: 0;
       padding: 0 0 0px;
+      padding-top: 5px;
       font-weight: bold;
       font-size: 30px ;
       text-align: center;
@@ -120,6 +121,7 @@
      margin-left:4%;
      margin-right: 4%;
      margin-top: 2px;
+     
     }
 
     .login-box button {
@@ -152,7 +154,7 @@
   </head>
 
   <body class="text-center">
-    <nav class="site-header sticky-top py-1 bg-dark">
+   <!-- <nav class="site-header sticky-top py-1 bg-dark">
       <div
         class="container d-flex flex-column flex-md-row justify-content-between"
       >
@@ -165,9 +167,10 @@
         >
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="login.html">Login</a>
       </div>
-    </nav>
+    </nav> 
+    En un principo no quiero que se vea la barra de navegacion en la etapa de autenticacion-->
+
 
    <!-- 
   <div class="container p-5">
@@ -180,12 +183,12 @@
   </div> -->
   
  <!--Aplico cambios para construir el loguin-->
-  
+  <section class="jumbotron text-center">
     <div class="login-box">
       <form action="cover.html" method="post" class="">
         <div class="row">
-          <img src="img/login_2.png">
-          <h4>Registrate aqui</h4>
+         <!-- <img src="img/login_2.png">-->
+          <h4>Ingresa aqui</h4>
           
           <label for="email"></label>
           <input
@@ -216,7 +219,7 @@
             />Remember me
           </label>
         </div>
-        <button type="submit">Registrarse</button>
+        <button type="submit">Continuar</button>
       </form>
     </div>
 
