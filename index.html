@@ -46,16 +46,17 @@
       padding: 15px;
       margin: auto;
     }*/
-    MODIFICACIONES AL ESTILO DEL LOGUIN
+    /*MODIFICACIONES AL ESTILO DEL LOGUIN*/
+
     body{
       margin: 0;
       padding: 0;
       background: url(img/cover_back.png) no-repeat center right;
-      background-size:inherit;
+      background-size:contain;
     }
     .login-box{
       width: 350px;
-      height: 420px;
+      height: 460px;
       border-radius: 20px;
       border: 3px solid rgb(211, 64, 38) ;
       background-color: rgba(255, 255, 255, 0.37);
@@ -64,11 +65,13 @@
       position:absolute;
       transform: translate(-50%,-50%);
       box-sizing: border-box;
-      padding: 70px 30px;
+      padding: 30px 30px;
     }
 
     .login-box h4 {
       margin: 0;
+      margin-bottom: 50px;
+      margin-top: 10px;
       padding: 0 0 0px;
       padding-top: 5px;
       font-weight: bold;
@@ -107,6 +110,19 @@
      margin-top: 10px;
     }
 
+    .login-box input[type ="text"]{
+     border: 1px solid rgb(211,64, 38);
+     border-radius: 10px;
+     background:transparent;
+     outline: none;
+     height: 40px;
+     font: size 16px;
+     width: 100%;
+     margin-left:4%;
+     margin-right: 4%;
+     margin-top: 10px;
+    }
+
 
 
 
@@ -120,7 +136,7 @@
      width: 100%;
      margin-left:4%;
      margin-right: 4%;
-     margin-top: 2px;
+     margin-top: 10px;
      
     
     }
@@ -162,8 +178,18 @@
       <form action="cover.html" method="post" class="">
         <div class="row">
          <!-- <img src="img/login_2.png">-->
-          <h4>Ingresa aqui</h4>
+          <h4>Registrate aqui</h4>
           
+          <label for="user"></label>
+          <input
+            type="text"
+            name="user"
+            id="usuarioLogueado"
+            placeholder="Usuario"
+            required
+            autofocus
+          />
+
           <label for="email"></label>
           <input
             type="email"
@@ -188,17 +214,10 @@
          
         </div>
         <div>
-          <label for="checkbox">
-            <input
-              type="checkbox"
-              name="checkbox"
-              id="checkbox"
-              value="remember-me"
-            />Remember me
-          </label>
+          
           <small id="error"></small>
         </div>
-        <button type="submit">Continuar</button>
+        <button id="enviarDatos">Continuar</button>
       </form>
     </div>
 
@@ -225,9 +244,6 @@
       
 
     </form>-->
-
-
-
 
     <script src="js/init.js"></script>
     <script src="js/login.js"></script>

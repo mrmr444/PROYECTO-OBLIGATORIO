@@ -26,18 +26,18 @@
 
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
-      <div
-        class="container d-flex flex-column flex-md-row justify-content-between"
-      >
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="cover.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html"
           >Categorías</a
         >
-        <a class="py-2 d-none d-md-inline-block" href="products.html"
-          >Productos</a
-        >
+        <a class="py-2 d-none d-md-inline-block" href="products.html" >Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <div id="info-user" style="display: none;">
+          <p id="user" class="py-2 d-none d-md-inline-block" style="color: white;"></p>
+          <a id="salir" class="py-2 d-none d-md-inline-block" href="#">Salir</a>
+        </div>
       </div>
     </nav>
    
@@ -48,6 +48,47 @@
         <div class="text-center p-4">
           <h2>Productos</h2>
           <p class="lead">Verás aqui toda nuestra lista de productos en el sitio.</p>
+          
+          <div class="container">
+            <div class="row">
+                <div class="col text-right">
+                    <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+              
+                      <button class="btn btn-link btn-sm" id="limpiar">Limpiar</button>
+                        <label class="btn btn-light" id="sortByCount" >
+                           <!-- <input type="radio" name="options" id="precioDesc"  autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>$
+                            <input type="radio" name="options" id="precioAsc"   autocomplete="on"><i class="fas fa-sort-amount-up mr-1"></i>$
+                            <input type="radio" name="options" id="vendidoDesc" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Rel-->
+                           <button id="precioDesc"><i class="fas fa-sort-amount-down mr-1"></i>$</button> 
+                           <button id="precioAsc"><i class="fas fa-sort-amount-up mr-1"></i>$</button> 
+                           <button id="vendidoDesc"><i class="fas fa-sort-amount-down mr-1"></i>Rel</button>  
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+              <div class="col-md-6"></div>
+                <div class="col-md-6 col-sm-12 mb-1 container">
+                  <div class="row container p-0 m-0">
+                    <div class="col">
+                      <p class="font-weight-normal text-right my-2">Precio</p>
+                    </div>
+                    <div class="col">
+                      <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+                    </div>
+                    <div class="col">
+                      <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+                    </div>
+                    <div class="col-3 p-0">
+                      <div class="btn-group" role="group">
+                        <button class="btn btn-link btn-sm" id="rangeFilterCount">Filtrar</button>
+                        <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
           <div class="row">
             <div class="list-group" id="products"></div>
