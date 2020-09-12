@@ -49,9 +49,12 @@ function sortProducts(criterio, array) {
 
     return result;
 }
+//----------------------------------------------------------------------------------------------------------------------
 
-
-
+function verProducto(id) {
+    localStorage.setItem('producto', JSON.stringify({productoId: id}));
+    window.location ='product-info.html';
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -77,6 +80,7 @@ function showCategoriesList(array) {
                     </div>
                      <h6 class="mb-1" style="text-align:left;">`+ product.description + `</h6>
                      <h5 class="mb-1" style="text-align:left;">`+ product.currency + product.cost + `</h5>
+                     <button style="float: left;" onclick="verProducto(` + product.id + ` )">Mas Información</button>
                 </div>
             </div>
         </div>
