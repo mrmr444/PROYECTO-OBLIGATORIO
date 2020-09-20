@@ -23,9 +23,7 @@
     <link href="css/styles.css" rel="stylesheet" />
   </head>
 
-
   <body>
-   
     <nav class="site-header sticky-top py-1 bg-dark">
       <div
         class="container d-flex flex-colZmn flex-md-row justify-content-between"
@@ -38,43 +36,91 @@
           >Productos</a
         >
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <div id="info-user" style="display: none">
-          <p
-            id="user"
-            class="py-2 d-none d-md-inline-block"
-            style="color: white"
-          ></p>
-          <a id="salir" class="py-2 d-none d-md-inline-block" href="#">Salir</a>
+
+        <div class="btn-group" id="info-user" style="display: none">
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <p
+              id="user"
+              class="py-2 d-none d-md-inline-block"
+              style="color: white"
+            ></p>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id="salir" href="#">Cerrar cesion</a>
+          </div>
         </div>
+        
       </div>
     </nav>
     <div class="container p-5">
-      <div
-        
-        style="position: relative; width: auto; top: 0"
-      >
+      <div style="position: relative; width: auto; top: 0">
         <div id="contenido"></div>
         <hr />
-        <div id="imagenes"></div>
+        <!--<div id="imagenes"></div> -->
+        <!--Aca iria codigo del carrousell, comentar el div de imagenes-->
+
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="" id="imag1"  class="d-block w-100" alt="" >
+            </div>
+            <div class="carousel-item">
+              <img src=""  id="imag2" class="d-block w-100" alt="" >
+            </div>
+            <div class="carousel-item">
+              <img src=""  id="imag3" class="d-block w-100" alt="" >
+            </div>
+            <div class="carousel-item">
+              <img src=""  id="imag4" class="d-block w-100" alt="" >
+            </div>
+            <div class="carousel-item">
+              <img src=""  id="imag5" class="d-block w-100" alt="" >
+            </div>
+          </div>
+        </div>
+
+
+
         <hr />
-        <a href="products.html">Ver lista de productos</a>
-        <hr>
-        <h6>Deja tu comentario</h6><br>
+        <a href="products.html">Ir a lista de productos</a>
+        <hr />
+        <h6>Deja tu comentario</h6>
+        <br />
         <div id="comentarios"></div>
-        <div id="nuevoComentario" style="display:none;">
-          <input class="comentarios" style="width: 100%;" type="text" name="comentario" id="newComment"><br>
+        <div id="nuevoComentario" style="display: none">
+          <input
+            class="comentarios"
+            style="width: 100%"
+            type="text"
+            name="comentario"
+            id="newComment"
+          /><br />
           <p>Calificación:</p>
-          <select  id="nuevaCalificacion">
-            <option >1</option>
-            <option >2</option>
-            <option >3</option>
-            <option >4</option>
-            <option >5</option>
+          <select id="nuevaCalificacion">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
           </select>
           <button id="enviarComentario">Enviar</button>
         </div>
       </div>
+      <br><hr><br>
+      <div>
+        <p>Otros productos que te pueden interesar:</p>
+        <div id="relacionados"></div> 
+      </div>
+
     </div>
 
     <footer class="text-muted">

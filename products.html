@@ -33,10 +33,26 @@
         >
         <a class="py-2 d-none d-md-inline-block" href="products.html" >Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <div id="info-user" style="display: none;">
-          <p id="user" class="py-2 d-none d-md-inline-block" style="color: white;"></p>
-          <a id="salir" class="py-2 d-none d-md-inline-block" href="#">Salir</a>
+        <div class="btn-group" id="info-user" style="display: none">
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <p
+              id="user"
+              class="py-2 d-none d-md-inline-block"
+              style="color: white"
+            ></p>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id="salir" href="#">Cerrar cesion</a>
+          </div>
         </div>
       </div>
     </nav>

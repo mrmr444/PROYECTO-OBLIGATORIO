@@ -1,5 +1,24 @@
 var producto = {};
 var comentariosArray = [];
+var productosArray =[];
+
+//------------------------------------------------------------------------------------------------------------
+
+function showRelatedProducts(arrayProductos, arrayRelacionados){
+    let content ='<hr>';
+
+    arrayRelacionados.forEach(function(i) {
+
+        content += 'Título: ' + arrayProductos[i].name + '<br>';
+        content += '<img class="img" src="'+ arrayProductos[i].imgSrc +'" width="150px" alt=""><br>';
+        content +='Precio: ' + arrayProductos[i].cost +'<br><hr><br>' ;
+        
+        
+    });
+
+    document.getElementById("relacionados").innerHTML= content;
+}
+
 //------------------------------------------------------------------------------------------------------------
 function showProduct(producto, arrayComments) {
 
@@ -16,14 +35,6 @@ function showProduct(producto, arrayComments) {
         <small styile="float:right;"> Vendidos:  ${producto.soldCount}  </small>
         `;
 
-
-    imgs += `
-            <img class="img" src="${producto.images[0]}"  width="150px" height="150px" alt="">
-            <img class="img" src="${producto.images[1]}"  width="150px" height="150px" alt="">
-            <img class="img" src="${producto.images[2]}"  width="150px" height="150px" alt="">
-            <img class="img" src="${producto.images[3]}"  width="150px" height="150px" alt="">
-            <img class="img" src="${producto.images[4]}"  width="150px" height="150px" alt="">
-         `;
 
     arrayComments.forEach(function (comment) {
         let puntos = "";
@@ -46,13 +57,24 @@ function showProduct(producto, arrayComments) {
 
         comentarios += ` <div style="text-align: right"> ${puntos} </div><br><hr> `;
     });
+    
 
     document.getElementById("contenido").innerHTML = contenido;
-    document.getElementById("imagenes").innerHTML = imgs;
     document.getElementById("comentarios").innerHTML = comentarios;
 
-}
 
+    document.getElementById("imag1").src = producto.images[0];
+    document.getElementById("imag2").src = producto.images[1];
+    document.getElementById("imag3").src = producto.images[2];
+    document.getElementById("imag4").src = producto.images[3];
+    document.getElementById("imag5").src = producto.images[4];
+
+}
+//intervalo-------------------------------------------------------------------------------------------------
+
+$('.carousel').carousel({
+    interval: 2000
+  })
 
 //-------------------------------------------------------------------------------------------------------------
 
@@ -70,10 +92,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             producto = resultObj.data;
 
-            //muestro categorias ordenadas
+            //muestro producto y comentario
             showProduct(producto, comentariosArray);
         }
     });
+
+    getJSONData(LIST_URL).then(function (resultObj) {
+        if (resultObj.status === "ok"){
+            productosArray = resultObj.data;
+
+            //muestro productos relacionados
+            showRelatedProducts(productosArray, producto.relatedProducts);
+        }
+    });
+
+
 
 
     //---------------------------------------------------------------------------------------------------------------
