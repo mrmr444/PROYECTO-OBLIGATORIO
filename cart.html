@@ -35,6 +35,16 @@
           font-size: 3.5rem;
         }
       }
+
+      .carrito,table, th, td {
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    margin:auto;
+    background-color: rgb(7, 97, 124);
+    color: white;
+    border: 1px white solid; 
+}
     </style>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
@@ -78,23 +88,67 @@
       </div>
     </nav>
     <div class="container p-5">
-      <div
-        class="alert alert-danger"
-        role="alert"
-        style="position: relative; width: auto; top: 0"
-      >
-        <h4 class="alert-heading">¡A trabajar! :)</h4>
-        <p>
-          Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y
-          Entrega 6 (Fecha de entrega: 25/10/2020).
-        </p>
-        <hr />
-        <p class="mb-0">
-          Para saber qué debes hacer, fijate en la actividad en CREA
-          correspondiente a esta entrega.
-        </p>
+      
+      <div style="position: relative; width: auto; top: 0">
+        
+        <div class="carrito">
+          <h2>Aqui puedes visualizar todos los productos comprados:</h2><hr>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Moneda</th>
+                <th>Costo</th>
+              </tr>
+            </thead>
+            <tbody id="list"></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">Subtotal</td>
+                <tH>USD</tH>
+                <td id="subTotal"></td>
+              </tr>
+            </tfoot>
+          </table>
+          <hr>
+          <h4>Lugar de envio</h4>
+          <p>Por favor ingrese los datos de envio a continuación: </p>
+          
+          <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Dirección"><br>
+          
+          <input type="text" name="pais" id="pais" placeholder="País" class="form-control" >
+          
+          <div><hr>
+
+            <h4>Método de envio</h4>
+            <input id="standar" name="envio" type="radio" value="5" checked="" required="">
+            <label for="standar">Standard (12 a 15 dias) - 5% sobre el Subtotal</label><br>
+
+            <input id="express" name="envio" type="radio" value="7" required="">
+            <label for="express">Express (5 a 8 dias) - 7% sobre el Subtotal</label><br>
+
+            <input id="premium" name="envio" type="radio" value="15" required="">
+            <label for="premium">Premium (2 a 5 dias) - 15% sobre e l Subtotal</label><br>
+          </div>
+          
+          <hr>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Subtotal</th>
+                <th>Costo de envio</th>
+                <th>Costo total</th>
+              </tr>
+            </thead>
+             <tbody id="totalTotal"></tbody>
+          </table>
+        </div>
       </div>
     </div>
+
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>
