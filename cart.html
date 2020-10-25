@@ -1,166 +1,237 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <title>eMercado - Todo lo que busques está aquí</title>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link
-      rel="canonical"
-      href="https://getbootstrap.com/docs/4.3/examples/album/"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
-      rel="stylesheet"
-    />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <title>eMercado - Todo lo que busques está aquí</title>
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+    .carrito,
+    table,
+    th,
+    td {
+      width: 100%;
+      max-width: 700px;
+      padding: 15px;
+      margin: auto;
+      background-color: rgb(95, 95, 95);
+      color: white;
+      border: 1px white solid;
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/dropzone.css" rel="stylesheet" />
+</head>
 
-      .carrito,table, th, td {
-    width: 100%;
-    max-width: 700px;
-    padding: 15px;
-    margin:auto;
-    background-color: rgb(7, 97, 124);
-    color: white;
-    border: 1px white solid; 
-}
-    </style>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/dropzone.css" rel="stylesheet" />
-  </head>
-
-  <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div
-        class="container d-flex flex-column flex-md-row justify-content-between"
-      >
-        <a class="py-2 d-none d-md-inline-block" href="cover.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html"
-          >Categorías</a
-        >
-        <a class="py-2 d-none d-md-inline-block" href="products.html"
-          >Productos</a
-        >
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <div class="btn-group" id="info-user" style="display: none">
-          <button
-            type="button"
-            class="btn btn-secondary dropdown-toggle"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <p
-              id="user"
-              class="py-2 d-none d-md-inline-block"
-              style="color: white"
-            ></p>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="cart.html">Mi carrito</a>
-            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" id="salir" href="#">Cerrar cesion</a>
-          </div>
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="cover.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <div class="btn-group" id="info-user" style="display: none">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <p id="user" class="py-2 d-none d-md-inline-block" style="color: white"></p>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" id="salir" href="#">Cerrar cesion</a>
         </div>
       </div>
-    </nav>
-    <div class="container p-5">
-      
-      <div style="position: relative; width: auto; top: 0">
+    </div>
+  </nav>
+  <div id="contenidoCarrito" class="container p-5">
+    <div style="position: relative; width: auto; top: 0">
+      <div class="carrito">
+        <h2>Aqui puedes visualizar todos los productos comprados:</h2>
+        <hr />
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Producto</th>
+              <th>Precio Unitario</th>
+              <th>Cantidad</th>
+              <th>Moneda</th>
+              <th>Costo</th>
+            </tr>
+          </thead>
+          <tbody id="list"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Subtotal</td>
+              <th>USD</th>
+              <td id="subTotal"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <hr />
         
-        <div class="carrito">
-          <h2>Aqui puedes visualizar todos los productos comprados:</h2><hr>
-          <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Moneda</th>
-                <th>Costo</th>
-              </tr>
-            </thead>
-            <tbody id="list"></tbody>
-            <tfoot>
-              <tr>
-                <td colspan="3">Subtotal</td>
-                <tH>USD</tH>
-                <td id="subTotal"></td>
-              </tr>
-            </tfoot>
-          </table>
-          <hr>
+
+        <div>
+          <h4>Método de envio</h4>
+          <input id="standar" name="envio" type="radio" value="5" checked="" required="" />
+          <label for="standar">Standard (12 a 15 dias) - 5% sobre el Subtotal</label><br />
+
+          <input id="express" name="envio" type="radio" value="7" required="" />
+          <label for="express">Express (5 a 8 dias) - 7% sobre el Subtotal</label><br />
+
+          <input id="premium" name="envio" type="radio" value="15" required="" />
+          <label for="premium">Premium (2 a 5 dias) - 15% sobre e l Subtotal</label><br />
+        </div><br><hr>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Subtotal</th>
+              <th>Envio</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="totalTotal"></tbody>
+        </table>
+
+        <hr><br>
+        <!-- Button trigger modal -->
+        
+          <p>Por favor ingrese los datos de pago:</p>
+        <button id="btn-modal" type="button" class="form-control btn btn-primary" data-toggle="modal"
+        data-target="#staticBackdrop">
+        Datos de pago
+      </button><br><hr>
+
+        <div> 
           <h4>Lugar de envio</h4>
-          <p>Por favor ingrese los datos de envio a continuación: </p>
-          
-          <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Dirección"><br>
-          
-          <input type="text" name="pais" id="pais" placeholder="País" class="form-control" >
-          
-          <div><hr>
+          <p>Por favor ingrese los datos de envio a continuación:</p>
 
-            <h4>Método de envio</h4>
-            <input id="standar" name="envio" type="radio" value="5" checked="" required="">
-            <label for="standar">Standard (12 a 15 dias) - 5% sobre el Subtotal</label><br>
+          <form id="needs-validation" class="needs-validation">
 
-            <input id="express" name="envio" type="radio" value="7" required="">
-            <label for="express">Express (5 a 8 dias) - 7% sobre el Subtotal</label><br>
+            <input type="text" name="direccion" value="" class="form-control" id="direccion" placeholder="Dirección" required />
+            <div class="invalid-feedback">Debe completar este campo.</div><br />
 
-            <input id="premium" name="envio" type="radio" value="15" required="">
-            <label for="premium">Premium (2 a 5 dias) - 15% sobre e l Subtotal</label><br>
+            <input type="number" id="numero"value=""  placeholder="Número" class="form-control"required />
+            <div class="invalid-feedback">Debe completar este campo.</div><br />
+
+            <input type="text" id="esquina"value=""  placeholder="Esquina" class="form-control" required/>
+            <div class="invalid-feedback">Debe completar este campo.</div><br>
+
+            <input type="text" id="pais" value="" placeholder="País" class="form-control"required />
+            <div class="invalid-feedback">Debe completar este campo.</div><br>
+
+            
+            <button type="submit" class="form-control btn btn-primary">
+              Confirmar
+            </button>
+            
+
+          </form>
+        </div>
+
+        
+
+        <hr />
+
+        
+      </div>
+    </div>
+  </div>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  
+
+  <!-- Modal --------------------------------------------------------------------------------------------------------------->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Seleccione la forma de pago</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="modal-body">
+            <input type="radio" name="formaPago" id="tarjeta" value="1" checked>
+            <label for="tarjeta">Tarjeta de crédito</label><br>
+            <input type="radio" name="formaPago" id="banco" value="2">
+            <label for="banco">Transferencia bancaria</label><br>
+            <hr>
+
+            <div>
+              <div id="datosTarjeta" class="">
+                <input class="form-control" type="number" id="numTrjeta" placeholder="N° de la tarjeta" required><br>
+                <input class="form-control" type="text" id="titularTarjeta" placeholder="Titular de la tarjeta" required><br>
+                <input class="form-control" type="text" id="codigoTarjeta" placeholder="Código de seguridad" required><br>
+                <hr>
+              </div>
+              <div id="datosBanco" class="d-none">
+                <select class="form-control" id="banco">
+                  <option>BROU</option>
+                  <option>Santander</option>
+                  <option>Itau</option>
+                </select><br>
+                <input class="form-control" type="number" id="cuenta" placeholder="N° de cuenta" required><br>
+                <input class="form-control" type="number" id="sucursal" placeholder="Sucursal" required><br>
+                <input class="form-control" type="text" id="titularCuenta" placeholder="Titular de la cuenta" required><br>
+                <hr>
+              </div>
+
+            </div>
+
           </div>
-          
-          <hr>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Subtotal</th>
-                <th>Costo de envio</th>
-                <th>Costo total</th>
-              </tr>
-            </thead>
-             <tbody id="totalTotal"></tbody>
-          </table>
+          <div class="modal-footer">
+            <button  type="button" class="btn btn-block btn-success" data-dismiss="modal">
+              Confirmar
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------->
 
-    <div id="spinner-wrapper">
-      <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
+    <div id="datosValidados"></div>
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/dropzone.js"></script>
     <script src="js/init.js"></script>
     <script src="js/cart.js"></script>
-  </body>
+</body>
+
 </html>
