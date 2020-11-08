@@ -67,24 +67,28 @@ function showCategoriesList(array) {
         if (((minProducts == undefined) || (minProducts != undefined && parseInt(product.cost) >= minProducts)) &&
             ((maxProducts == undefined) || (maxProducts != undefined && parseInt(product.cost) <= maxProducts))) {
 
-            htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">  
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name + `</h4>
-                        <small class="text-muted">` + product.soldCount + ` artículos</small> 
-                    </div>
-                     <h6 class="mb-1" style="text-align:left;">`+ product.description + `</h6>
-                     <h5 class="mb-1" style="text-align:left;">`+ product.currency + product.cost + `</h5>
-                     <button style="float: left;" onclick="verProducto(` + product.id + ` )">Mas Información</button>
-                </div>
-            </div>
-        </div>
-        `
+            htmlContentToAppend +=  `
+                                        <div class="col-md-6 col-lg-4 mt-5 card" style="width: 18rem;">
+                                            <div class="row m-3">
+                                            <img class="card-img-top" src="${product.imgSrc}" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">${product.name}</h5>
+                                                <p class="card-text">${product.description}</p>
+                                            </div>
+                                                <ul class="list-group list-group-flush">
+                                                
+                                                    <h5 class="mb-1" style="text-align:center;">`+ product.currency + product.cost + `</h5>
+                                                    <small class="text-muted">` + product.soldCount + ` artículos</small> 
+                                                
+                                                </ul>
+                                            <div class="card-body">
+                                                <button style="float: center;" onclick="verProducto(` + product.id + ` )">Mas Información</button>
+                                            </div>
+                                        </div>
+
+                                    `
+
 
         }
         document.getElementById("products").innerHTML = htmlContentToAppend;
