@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+
 <html lang="en">
 
 <head>
@@ -11,6 +11,8 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/" />
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+
+
 
   <style>
     .bd-placeholder-img {
@@ -41,19 +43,28 @@
       border: 1px white solid;
     }
   </style>
+
+
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
   <link href="css/dropzone.css" rel="stylesheet" />
 </head>
 
+
+
 <body>
+  <!--Barra de navegacion----------------------------------------------------------------------------------->
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="cover.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      
+
+      <!--Desplegable ------------------------------------------------------------------------------------------->
       <div class="btn-group" id="info-user" style="display: none">
+
         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
           <p id="user" class="py-2 d-none d-md-inline-block" style="color: white"></p>
@@ -65,13 +76,19 @@
           <a class="dropdown-item" id="salir" href="#">Cerrar cesion</a>
         </div>
       </div>
+
+
     </div>
   </nav>
+
+
   <div id="contenidoCarrito" class="container p-5">
     <div style="position: relative; width: auto; top: 0">
       <div class="carrito">
         <h2>Aqui puedes visualizar todos los productos comprados:</h2>
         <hr />
+
+        <!--Tabla de productos------------------------------------------->
         <table>
           <thead>
             <tr>
@@ -83,6 +100,8 @@
               <th>Costo</th>
             </tr>
           </thead>
+
+          <!--Lista que traemos de cart.js--------------------------------->
           <tbody id="list"></tbody>
           <tfoot>
             <tr>
@@ -94,7 +113,7 @@
         </table>
         <hr />
         
-
+        <!--Seleccionamos tipo de envio, dependiendo del tipo el costo adicional-->
         <div>
           <h4>Método de envio</h4>
           <input id="standar" name="envio" type="radio" value="5" checked="" required="" />
@@ -107,6 +126,8 @@
           <label for="premium">Premium (2 a 5 dias) - 15% sobre e l Subtotal</label><br />
         </div><br><hr>
 
+        <!--Tabla que muestra el costo total ---------------------------------------->
+
         <table>
           <thead>
             <tr>
@@ -115,11 +136,15 @@
               <th>Total</th>
             </tr>
           </thead>
+
+          <!--Traemos el costo total, sumando productos y adicional de envio---------->
           <tbody id="totalTotal"></tbody>
         </table>
 
         <hr><br>
-        <!-- Button trigger modal -->
+
+
+        <!-- Button trigger modal --------------------------------------------------->
         
           <p>Por favor ingrese los datos de pago:</p>
         <button id="btn-modal" type="button" class="form-control btn btn-primary" data-toggle="modal"
@@ -127,23 +152,26 @@
         Datos de pago
       </button><br><hr>
 
+
+        <!-- Form de datos de envio----------------------------------------------------------->
+
         <div> 
           <h4>Lugar de envio</h4>
           <p>Por favor ingrese los datos de envio a continuación:</p>
 
-          <form id="needs-validation" class="needs-validation">
+          <form id="needs-validation" novalidate>
 
             <input type="text" name="direccion" value="" class="form-control" id="direccion" placeholder="Dirección" required />
-            <div class="invalid-feedback">Debe completar este campo.</div><br />
+            <!--<div class="invalid-feedback">Debe completar este campo.</div>--><br />
 
-            <input type="number" id="numero"value=""  placeholder="Número" class="form-control"required />
-            <div class="invalid-feedback">Debe completar este campo.</div><br />
+            <input type="number" id="numero"value=""  placeholder="Número" class="form-control"required  />
+            <!--<div class="invalid-feedback">Debe completar este campo.</div>--><br />
 
-            <input type="text" id="esquina"value=""  placeholder="Esquina" class="form-control" required/>
-            <div class="invalid-feedback">Debe completar este campo.</div><br>
+            <input type="text" id="esquina"value=""  placeholder="Esquina" class="form-control"required />
+            <!--<div class="invalid-feedback">Debe completar este campo.</div>--><br>
 
-            <input type="text" id="pais" value="" placeholder="País" class="form-control"required />
-            <div class="invalid-feedback">Debe completar este campo.</div><br>
+            <input type="text" id="pais" value="" placeholder="País" class="form-control"required  />
+            <!--<div class="invalid-feedback">Debe completar este campo.</div>--><br>
 
             
             <button type="submit" class="form-control btn btn-primary">
@@ -162,6 +190,11 @@
       </div>
     </div>
   </div>
+
+
+  <!--Mostramos los alert en cuanto se valida o no los datos de compra------------------------------->
+
+  <div id="datosValidados"></div>
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
@@ -187,12 +220,14 @@
         </div>
         <div class="modal-body">
           <div id="modal-body">
+
+            <!-- Seleccion de forma de pago mediante dos input radio------------------------------- -->
             <input type="radio" name="formaPago" id="tarjeta" value="1" checked>
             <label for="tarjeta">Tarjeta de crédito</label><br>
             <input type="radio" name="formaPago" id="banco" value="2">
             <label for="banco">Transferencia bancaria</label><br>
             <hr>
-
+            <!--Datos de la tarjeta---------------------------------------------------------------------->
             <div>
               <div id="datosTarjeta" class="">
                 <input class="form-control" type="number" id="numTrjeta" placeholder="N° de la tarjeta" required><br>
@@ -200,6 +235,8 @@
                 <input class="form-control" type="text" id="codigoTarjeta" placeholder="Código de seguridad" required><br>
                 <hr>
               </div>
+
+              <!--Datos de cuenta bancaria-------------------------------------------------------------->
               <div id="datosBanco" class="d-none">
                 <select class="form-control" id="banco">
                   <option>BROU</option>
@@ -225,7 +262,6 @@
     </div>
     <!---------------------------------------------------------------------------------------------------------------------------------------------->
 
-    <div id="datosValidados"></div>
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

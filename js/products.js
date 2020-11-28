@@ -19,7 +19,7 @@ function sortProducts(criterio, array) {
             if (a.cost > b.cost) { return 1; } // cost es una caract de cada objeto del json
             return 0;
         });
-                                
+
     } else if (criterio === ORDER_DESC_BY_PROD) {
         result = array.sort(function (a, b) {
             if (a.cost > b.cost) {
@@ -52,8 +52,8 @@ function sortProducts(criterio, array) {
 //----------------------------------------------------------------------------------------------------------------------
 
 function verProducto(id) {
-    localStorage.setItem('producto', JSON.stringify({productoId: id}));
-    window.location ='product-info.html';
+    localStorage.setItem('producto', JSON.stringify({ productoId: id }));
+    window.location = 'product-info.html';
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -67,7 +67,10 @@ function showCategoriesList(array) {
         if (((minProducts == undefined) || (minProducts != undefined && parseInt(product.cost) >= minProducts)) &&
             ((maxProducts == undefined) || (maxProducts != undefined && parseInt(product.cost) <= maxProducts))) {
 
-            htmlContentToAppend +=  `
+
+            if (buscar == undefined || product.name.toLowerCase().indexOf(buscar) != -1) {
+
+                htmlContentToAppend += `
                                         <div class="col-md-6 col-lg-4 mt-5 card" style="width: 18rem;">
                                             <div class="row m-3">
                                             <img class="card-img-top" src="${product.imgSrc}" alt="Card image cap">
@@ -90,15 +93,27 @@ function showCategoriesList(array) {
                                     `
 
 
+            }else{
+                htmlContentToAppend+= `
+
+                <div class="alert alert-danger" role="alert">
+                <strong>No hay productos con ese nombre :(</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                `
+            }
         }
         document.getElementById("products").innerHTML = htmlContentToAppend;
     }
 }
 
-//--------------------------------------------------------------------------------------------------------------------
+//DOMContentLoaded--------------------------------------------------------------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
+    
     getJSONData(LIST_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             categoriesArray = resultObj.data;
@@ -124,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("precioDesc").addEventListener("click", function () {
 
-    categoriesArray = sortProducts(ORDER_DESC_BY_PROD, categoriesArray);
+        categoriesArray = sortProducts(ORDER_DESC_BY_PROD, categoriesArray);
 
         showCategoriesList(categoriesArray);
     });
@@ -175,8 +190,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showCategoriesList(categoriesArray);
     });
 
+    //-------------------------------------------------------------------------------------------------------------------
+
+    document.getElementById("buscador").addEventListener('input', function () {
+
+        buscar = document.getElementById("buscador").value.toLowerCase();
+
+        showCategoriesList(categoriesArray);
+
+    });
+
+    //-------------------------------------------------------------------------------------------------------------------
+
+    document.getElementById("limpBusc").addEventListener("click", function () {
+        document.getElementById("buscador").value = "";
+
+        buscar = undefined;
+
+        showCategoriesList(categoriesArray);
+    });
+
 });
-
-
-
-

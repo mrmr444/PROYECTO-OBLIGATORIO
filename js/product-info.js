@@ -2,22 +2,7 @@ var producto = {};
 var comentariosArray = [];
 var productosArray =[];
 
-//------------------------------------------------------------------------------------------------------------
 
-function showRelatedProducts(arrayProductos, arrayRelacionados){
-    let content ='<hr>';
-
-    arrayRelacionados.forEach(function(i) {
-
-        content += 'Título: ' + arrayProductos[i].name + '<br>';
-        content += '<img class="img" src="'+ arrayProductos[i].imgSrc +'" width="150px" alt=""><br>';
-        content +='Precio: ' + arrayProductos[i].cost +'<br><hr><br>' ;
-        
-        
-    });
-
-    document.getElementById("relacionados").innerHTML= content;
-}
 
 //------------------------------------------------------------------------------------------------------------
 function showProduct(producto, arrayComments) {
@@ -70,6 +55,39 @@ function showProduct(producto, arrayComments) {
     document.getElementById("imag5").src = producto.images[4];
 
 }
+
+//PRODUCTOS RELACIONADOS ------------------------------------------------------------------------------------------------------
+
+function showRelatedProducts(arrayProductos, arrayRelacionados){
+    let content ='';
+
+    arrayRelacionados.forEach(function(i) {
+
+
+         content +=  `
+                <div class="col-md-6 col-lg-4 m-2 card" style="width: 18rem;">
+                    <div class="row m-3">
+                    <img class="card-img-top" src="${arrayProductos[i].imgSrc}" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${arrayProductos[i].name}</h5>
+                    </div>
+                        <ul class="list-group list-group-flush">
+                        
+                            <h5 class="mb-1" style="text-align:center;"> USD` + arrayProductos[i].cost + `</h5>
+                        </ul>
+                    </div>
+                </div>
+                `
+
+        
+        
+    });
+
+    document.getElementById("relacionados").innerHTML= content;
+}
+
+
 //intervalo-------------------------------------------------------------------------------------------------
 
 $('.carousel').carousel({

@@ -1,5 +1,7 @@
-var productsArray = [];
+var productsArray = [];//array que contiene los productos
 
+
+//funcion para calcular el total de productos
 function calcTotal() {
     let total = 0;
     let subs = document.getElementsByClassName("subTotal");
@@ -11,6 +13,9 @@ function calcTotal() {
     calcEnvio();
 }
 
+
+
+//funcion para calcular el subtotal de productos
 function calcSubtotal(precioUnidad, i) {
 
     let cantidad = parseInt(document.getElementById(`cantidad${i}`).value);
@@ -21,6 +26,7 @@ function calcSubtotal(precioUnidad, i) {
 }
 
 
+// cambio de moneda para que todo se calcule en dolares
 function cambioMoneda(moneda, precio) {
     if (moneda === "UYU") {
         return precio / 40;
@@ -30,6 +36,7 @@ function cambioMoneda(moneda, precio) {
 }
 
 
+//muetro los productos en la tabla
 function showProductsArray(array) {
     let contenido = "";
 
@@ -64,6 +71,8 @@ function showProductsArray(array) {
     calcTotal();
 }
 
+
+//calculo costo del envio y lo adhiero al costo total, llegando al total con envio
 function calcEnvio() {
     let total = parseInt(document.getElementById("subTotal").innerHTML);
     let envio;
@@ -88,14 +97,20 @@ function calcEnvio() {
 
 }
 
+
+//-------------SELECCION FORMA DE PAGO ------------------------------------------------------------------------------------------------------------------------------
+
 function seleccionarPago() {
 
     var tipoPago = document.getElementsByName("formaPago");
 
     for (var i = 0; i < tipoPago.length; i++) {
+        
         if (tipoPago[i].checked && tipoPago[i].value == "1") {
             document.getElementById("datosTarjeta").classList.remove("d-none");
             document.getElementById("datosBanco").classList.add("d-none");
+
+
         } else if (tipoPago[i].checked && tipoPago[i].value == "2") {
             document.getElementById("datosTarjeta").classList.add("d-none");
             document.getElementById("datosBanco").classList.remove("d-none");
@@ -103,6 +118,8 @@ function seleccionarPago() {
     }
 }
 
+
+//----------VALIDACION DEL PAGO --------------------------------------------------------------------------------------------------------------------------------------
 function pagoValidado() {
     let formaPago = document.getElementsByName("formaPago");
     let numTarjeta = document.getElementById("numTarjeta").value;
@@ -112,6 +129,7 @@ function pagoValidado() {
     let sucursal = document.getElementById("sucursal").value;
     let titularCuenta = document.getElementById("titularCuenta").value;
     let pagoValido = true;
+
 
     for (var i = 0; i < formaPago.length; i++) {
         if (formaPago[i].checked && (formaPago[i].value) == "1") {
@@ -135,6 +153,7 @@ function pagoValidado() {
 
 
 
+// Eventos del DOM-----------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function (e) {
 
     getJSONData(ALL_CART_BUY_URL).then(function (resultObj) {
@@ -154,6 +173,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         });
     }
 
+    
     let tipoPago = document.getElementsByName("formaPago");
     for (var i = 0; i < tipoPago.length; i++) {
         tipoPago[i].addEventListener("change", function () {
@@ -163,7 +183,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 
-    let form = document.getElementById('needs-validation');
+
+
+    //Validacion del form-------------------------------------------------------------
+    let form =document.getElementById('needs-validation');
   
 
 
@@ -179,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 document.getElementById("btn-modal").classList.add("btn-success");
 
                 document.getElementById("datosValidados").innerHTML = `
-                <div class="alert alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert">
                 <strong>Forma de pago ingresada!</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -197,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
                 document.getElementById("datosValidados").innerHTML = `
 
-                <div class="alert alert alert-danger" role="alert">
+                <div class="alert alert-danger" role="alert">
                 <strong>Debe ingresar una forma de pago!</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -210,8 +233,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         } else {
 
             if (pagoValidado()) {
-                document.getElementById("contenidoCarrito").innerHTML = `
-            <div class="alert alert alert-success" role="alert">
+                document.getElementById("datosValidados").innerHTML = `
+            <div class="alert alert-success" role="alert">
             <strong>Felicitaciones!</strong> La compra se ha realizado con exito.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -240,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
         }
-
+    
         form.classList.add('was-validated');
 
     });
